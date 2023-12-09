@@ -17,6 +17,12 @@ public class Driver {
     @Column(name = "team_id")
     private Long teamId;
 
+    public Driver(String name, String country, Long teamId) {
+        this.name = name;
+        this.country = country;
+        this.teamId = teamId;
+    }
+
     public Long getId() {
         return id;
     }
