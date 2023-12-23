@@ -90,7 +90,7 @@ public class DriverRestController {
      */
     @DeleteMapping("/{id}")
     public ResponseEntity<?> delete(@PathVariable long id) {
-        if (drivers.existsById(id)) {
+        if (!drivers.existsById(id)) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         drivers.deleteById(id);
