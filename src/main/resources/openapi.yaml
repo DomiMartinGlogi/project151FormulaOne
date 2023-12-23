@@ -10,7 +10,7 @@ paths:
       summary: Retrieve all drivers
       responses:
         200:
-          description: A list of drivers
+          description: Returns a JSON Array of all drivers in the database.
           content:
             application/json:
               schema:
@@ -26,16 +26,16 @@ paths:
           type: integer
           format: int64
     get:
-      summary: Get a driver by ID
+      summary: Returns a specific driver by their assigned ID
       responses:
         200:
-          description: A single driver
+          description: Driver with a specific ID
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Driver'
     put:
-      summary: Update a driver by ID
+      summary: Updates a specific driver by their specific ID
       requestBody:
         required: true
         content:
@@ -44,19 +44,19 @@ paths:
               $ref: '#/components/schemas/Driver'
       responses:
         200:
-          description: The updated driver
+          description: The updated driver, all fields can be updated except for the ID field
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Driver'
     delete:
-      summary: Delete a driver by ID
+      summary: Delete a driver by their assigned ID
       responses:
         200:
-          description: Driver deleted
+          description: The driver with the assigned ID will be deleted if they exist.
   /driver/:
     post:
-      summary: Create a new driver
+      summary: Create a new Driver
       requestBody:
         required: true
         content:
@@ -65,7 +65,7 @@ paths:
               $ref: '#/components/schemas/Driver'
       responses:
         201:
-          description: New driver created
+          description: New driver to be created, all fields can be assigned manually except for ID, ID is assigned by the database
           content:
             application/json:
               schema:
@@ -75,7 +75,7 @@ paths:
       summary: Retrieve all teams
       responses:
         200:
-          description: A list of teams
+          description: Returns a JSON Array of all teams in the database
           content:
             application/json:
               schema:
@@ -94,7 +94,7 @@ paths:
       summary: Get a team by ID
       responses:
         200:
-          description: A single team
+          description: Returns Team with the given ID
           content:
             application/json:
               schema:
@@ -109,7 +109,7 @@ paths:
               $ref: '#/components/schemas/Team'
       responses:
         200:
-          description: The updated team
+          description: Updates a team with the given ID
           content:
             application/json:
               schema:
@@ -118,7 +118,7 @@ paths:
       summary: Delete a team by ID
       responses:
         200:
-          description: Team deleted
+          description: Deletes the team with the ID if it exists
   /team/:
     post:
       summary: Create a new team
